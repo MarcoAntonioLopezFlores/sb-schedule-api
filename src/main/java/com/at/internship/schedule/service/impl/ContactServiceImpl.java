@@ -1,5 +1,6 @@
 package com.at.internship.schedule.service.impl;
 
+import com.at.internship.schedule.config.DefaultRepositoryConfig;
 import com.at.internship.schedule.config.MockRepositoryConfig;
 import com.at.internship.schedule.domain.Contact;
 import com.at.internship.schedule.repository.IContactRepository;
@@ -15,7 +16,7 @@ public class ContactServiceImpl implements IContactService {
     private final IContactRepository contactRepository;
 
     public ContactServiceImpl(
-            @Qualifier(MockRepositoryConfig.BEAN_CONTACT_REPOSITORY)
+            @Qualifier(DefaultRepositoryConfig.PROP_REPOSITORY_CONTACT_DEFAULT)
             IContactRepository contactRepository
     ) {
         this.contactRepository = contactRepository;

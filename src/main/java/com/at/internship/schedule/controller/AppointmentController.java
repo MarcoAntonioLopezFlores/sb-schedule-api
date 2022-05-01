@@ -12,7 +12,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/appointment")
-@SuppressWarnings("unused")
 public class AppointmentController {
 
     private final IAppointmentService appointmentService;

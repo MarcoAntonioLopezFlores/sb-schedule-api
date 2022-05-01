@@ -2,7 +2,6 @@ package com.at.internship.schedule.repository.impl;
 
 import com.at.internship.schedule.domain.Appointment;
 import com.at.internship.schedule.repository.IAppointmentRepository;
-import org.springframework.stereotype.Component;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;

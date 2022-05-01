@@ -2,7 +2,6 @@ package com.at.internship.schedule.repository.impl;
 
 import com.at.internship.schedule.domain.Contact;
 import com.at.internship.schedule.repository.IContactRepository;
-import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
