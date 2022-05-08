@@ -3,13 +3,13 @@ package com.at.internship.schedule.repository.impl;
 import com.at.internship.schedule.domain.Appointment;
 import com.at.internship.schedule.domain.Contact;
 import com.at.internship.lib.repository.AbstractRepository;
-import com.at.internship.schedule.repository.IAppointmentRepository;
 import com.at.internship.schedule.serialization.csv.AppointmentSerializer;
 
 import java.time.LocalDate;
 import java.util.List;
 
-public class CsvAppointmentRepository extends AbstractRepository<Appointment, Integer> implements IAppointmentRepository {
+@Deprecated
+public class CsvAppointmentRepository extends AbstractRepository<Appointment, Integer> {
     private static int ID_SEQUENCE = 0;
     private static CsvAppointmentRepository SINGLETON;
 

@@ -3,17 +3,32 @@ package com.at.internship.schedule.domain;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Data
 @NoArgsConstructor
+@Entity
+@Table(name = "appointments")
 public class Appointment {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private Integer contactId;
     private LocalDateTime time;
+    @Column(nullable = false)
     private String subject;
+    //We should use a relation
+    @Column(nullable = false)
+    private Integer contactId;
+    @Transient
     private Contact contact;
+
+    @Column(insertable = false, updatable = false)
+    private LocalDateTime createDate;
+    @Column(insertable = false)
+    private LocalDateTime lastUpdateDate;
 
     public Appointment(Appointment source) {
         if(source == null)

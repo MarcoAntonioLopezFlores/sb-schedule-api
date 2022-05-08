@@ -8,7 +8,7 @@ import java.time.format.DateTimeFormatter;
 
 @Component
 public class DateUtils {
-    private static final String FMT_DATETIME_DEFAULT = "MM/dd/yyyy hh:mm:ss";
+    private static final String FMT_DATETIME_DEFAULT = "MM/dd/yyyy HH:mm:ss";
     private static final String FMT_DATE_DEFAULT = "MM/dd/yyyy";
 
     public String formatDefault(LocalDateTime dateTime) {
@@ -28,6 +28,7 @@ public class DateUtils {
 
     public LocalDateTime parseDefaultDateTime(String datetime) {
         if(datetime == null) return null;
+        System.out.println(datetime);
         return LocalDateTime.parse(datetime,DateTimeFormatter.ofPattern(FMT_DATETIME_DEFAULT));
     }
 }

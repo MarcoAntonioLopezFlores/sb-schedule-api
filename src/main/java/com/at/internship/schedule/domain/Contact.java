@@ -12,14 +12,16 @@ import java.util.Objects;
 @Data
 @NoArgsConstructor
 @Entity
+@Table(name = "contacts")
 public class Contact {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(nullable = false)
     private String firstName;
     @Column(nullable = false)
     private String lastName;
+    @Column(unique = true)
     private String emailAddress;
     @Deprecated
     private String phoneNumber;

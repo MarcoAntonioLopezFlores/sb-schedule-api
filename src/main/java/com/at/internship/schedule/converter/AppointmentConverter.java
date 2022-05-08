@@ -1,7 +1,6 @@
 package com.at.internship.schedule.converter;
 
 import com.at.internship.schedule.domain.Appointment;
-import com.at.internship.schedule.domain.Contact;
 import com.at.internship.schedule.dto.AppointmentDto;
 import com.at.internship.schedule.utils.DateUtils;
 import org.springframework.stereotype.Component;
@@ -21,17 +20,17 @@ public class AppointmentConverter {
         AppointmentDto appointmentDto = new AppointmentDto();
         appointmentDto.setId(appointment.getId());
         appointmentDto.setContactId(appointment.getContactId());
-        appointmentDto.setContactName(toStringContactName(appointment.getContact()));
         appointmentDto.setTime(dateUtils.formatDefault(appointment.getTime()));
         appointmentDto.setSubject(appointment.getSubject());
         return appointmentDto;
     }
 
-    private String toStringContactName(Contact contact) {
-        if(contact == null) return null;
-        return String.format("%s %s",
-                contact.getFirstName() == null ? "" : contact.getFirstName(),
-                contact.getLastName() == null ? "" : contact.getLastName()).trim();
+    public Appointment toAppointment(AppointmentDto appointmentDto) {
+        Appointment appointment = new Appointment();
+        appointment.setContactId(appointmentDto.getContactId());
+        appointment.setSubject(appointmentDto.getSubject());
+        appointment.setTime(dateUtils.parseDefaultDateTime(appointmentDto.getTime()));
+        return appointment;
     }
 
 }

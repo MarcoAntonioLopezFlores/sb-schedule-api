@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/contact")
-@SuppressWarnings("unused")
 public class ContactController {
 
     private final IContactService contactService;
